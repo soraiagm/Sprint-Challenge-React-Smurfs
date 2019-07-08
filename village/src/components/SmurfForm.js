@@ -11,23 +11,30 @@ class SmurfForm extends React.Component {
     handleChange = (event) => {
         this.setState({
           [event.target.name]: event.target.value
-        })
+        });
 
     }
 
     addSmurf = (event) => {
         event.preventDefault()
 
-        const { name, price, height } = this.state
-        const payload = { name, price, height }
+        const { name, age, height } = this.state
+        const payload = { name, age, height }
 
-        axios.post("http://localhost:3333/smurfs", payload)
+        axios.post(`http://localhost:3333/smurfs`, payload)
           .then((response) => {
-              // console.log(response)
-              this.setState({ smurfs: response.data })
+              console.log(response.data)
+              this.props.updateItems(response.data)
+              
+              this.setState({
+                  errorMessage: null
+              })
+             
           })
           .catch((err) => {
-              console.log(err.response.data)
+              this.setState({
+                errorMessage: err.response.data.error
+              })
           })
     }
 
@@ -36,14 +43,15 @@ class SmurfForm extends React.Component {
       
       return (
         <form onSubmit={this.addSmurf}>
-            <h1>Add New Smurf</h1>
+            <h1 className="FormTitle">Add New Smurf</h1>
 
+          <div className="TextForm">
             <input type="text" name="name" placeholder="Name" value={name} onChange={this.handleChange} />
             <input type="number" name="age" placeholder="Age" value={price} onChange={this.handleChange} />
             <input type="number" name="height" placeholder="Height" value={height} onChange={this.handleChange} />
 
-            <button type="submit">Add</button>
-   
+            <button className="Button" type="submit">Add</button>
+          </div>
 
         </form>
       )

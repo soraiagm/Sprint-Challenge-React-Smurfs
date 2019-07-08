@@ -1,3 +1,29 @@
 .App {
   text-align: center;
 }
+
+.nav-link {
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly; 
+}
+
+.TextForm {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+}
+
+.Button {
+  display: block;
+  margin: 10px 0;
+  cursor: pointer;
+  width: 100px;
+  height: 35px;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+.FormTitle {
+  color: blue;
+}

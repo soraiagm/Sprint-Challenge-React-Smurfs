@@ -25,9 +25,11 @@ class App extends React.Component {
         .catch(err => {
             console.log(err) 
         })
-
-
     
+   }
+
+   updateSmurfs = (smurfs) => {
+      this.setState({ smurfs })
    }
 
 
@@ -52,7 +54,7 @@ class App extends React.Component {
               <Route path="/smurf/:id" render={ (props) => <Smurf {...props} smurfs={this.state.smurfs} />} />             
               {/* <Route path="/smurf/:id" exact render={(props) => <Smurf {...props} smurfs={data} /> } /> */}
               
-              <Route path="/smurf-form" render={ (props) => <SmurfForm {...props} smurfs={this.state.smurfs} />} />
+              <Route path="/smurf-form" render={ (props) => <SmurfForm {...props} smurfs={this.state.smurfs} updateItems={this.updateItems} />} />
               {/* <Route path="/smurfForm" exact render={(props) => <SmurfForm {...props} smurfs={data} /> } /> */}
           </div>
          )};
