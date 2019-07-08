@@ -1,33 +1,65 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from "react-router-dom";
 
-
-import Smurf from './Smurf';
-
-class Smurfs extends Component {
-  render() {
-    return (
-      <div className="Smurfs">
-        <h1>Smurf Village</h1>
-        <ul>
-          {this.props.smurfs.map(smurf => {
-            return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
-            );
-          })}
-        </ul>
-      </div>
-    );
+  const Smurfs = props => {
+      return (
+          <div className="smurf-list-wrapper">
+              {props.smurfs.map( (smurf) => (
+                <Link to="{`/smurf/{smurf.id}`}" className="smurf-card" key={smurf.id}>
+                    <h2>{smurf.name}</h2>
+                    <h4>{smurf.age}</h4>
+                    <h4>{smurf.height}</h4>
+                </Link>
+                ))}
+          </div>
+      )
   }
-}
 
-Smurf.defaultProps = {
- smurfs: [],
-};
+  export default Smurfs;
+                  
+                  
+                  
+                  
+                //   Link to={`/smurf/{smurf.id}`} className="smurf-card" key={smurf.id}>
+                //      <h2>{smurf.name}</h2>
+                //      <h4>{smurf.age}</h4>
+                //      <h4>{smurf.height}</h4>
+                // </Link>
+            // ))}
+    
+  //     );
+  // }
 
-export default Smurfs;
+
+  
+
+
+
+// class Smurfs extends Component {
+//   render() {
+//     return (
+//       <div className="Smurfs-list-wrapper">
+//         <h1>Smurf Village</h1>
+//         <ul>
+//           {this.props.smurfs.map(smurf => {
+//             return (
+//               <Smurf
+//                 name={smurf.name}
+//                 id={smurf.id}
+//                 age={smurf.age}
+//                 height={smurf.height}
+//                 key={smurf.id}
+//               />
+//             );
+//           })}
+//         </ul>
+//       </div>
+//     );
+//   }
+// }
+
+// Smurf.defaultProps = {
+//  smurfs: [],
+// };
+
+
