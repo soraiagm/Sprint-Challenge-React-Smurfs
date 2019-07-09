@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const Smurf = props => {
     const smurf = props.smurfs.find(i => String(i.id)  === props.match.params.id);
@@ -14,6 +15,10 @@ const Smurf = props => {
                 <h3>{smurf.age}</h3>
                 <h3>{smurf.height}</h3>
             </div> 
+
+            <nav>
+                <Link to={`/edit/${smurf.id}`}>Delete Smurf</Link>
+            </nav> 
 
          </div> 
           ); 

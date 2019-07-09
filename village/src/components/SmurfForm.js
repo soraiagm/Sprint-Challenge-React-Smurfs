@@ -24,7 +24,9 @@ class SmurfForm extends React.Component {
         axios.post(`http://localhost:3333/smurfs`, payload)
           .then((response) => {
               console.log(response.data)
-              this.props.updateItems(response.data)
+              this.setState({
+                  errorMessage: null
+              })
               
               this.setState({
                   errorMessage: null

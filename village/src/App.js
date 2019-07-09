@@ -6,6 +6,7 @@ import Home from './components/Home';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Smurf from './components/Smurf';
+import Edit from './components/Edit';
 import './App.css';
 
 
@@ -56,6 +57,8 @@ class App extends React.Component {
               
               <Route path="/smurf-form" render={ (props) => <SmurfForm {...props} smurfs={this.state.smurfs} updateItems={this.updateItems} />} />
               {/* <Route path="/smurfForm" exact render={(props) => <SmurfForm {...props} smurfs={data} /> } /> */}
+
+              <Route path="/edit/:id" exact render={ (props) => <Edit {...props} updateItems={this.updateItems} />} />
           </div>
          )};
       }
